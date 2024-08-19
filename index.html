@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>intro</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body style="background-color: black; color: white; font-size: 20px">
+		<div
+			style="
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin: auto;
+				width: 90%;
+				background-color: rgb(122, 122, 221);
+				padding: 20px;
+				border-radius: 20px;
+				margin-top: 25px;
+			"
+		>
+			<h3
+				style="
+					background-color: rgb(54, 52, 49);
+					padding: 8px;
+					border-radius: 5px;
+				"
+			>
+				الحالة الصحية للوزن
+			</h3>
+			<label style="margin-top: 10px">الوزن</label>
+			<input
+				id="input-1"
+				style="margin-top: 10px; border-radius: 5px; padding: 5px"
+				type="number"
+				placeholder="ادخل الوزن"
+			/>
+			<label style="margin-top: 10px">الطول</label>
+			<input
+				id="input-2"
+				style="margin-top: 10px; border-radius: 5px; padding: 5px"
+				type="number"
+				placeholder="ادخل الطول"
+			/>
+			<button
+				id="btn"
+				style="
+					margin-top: 25px;
+					background-color: rgb(33, 29, 29);
+					border: none;
+					padding: 8px 12px 12px 8px;
+					text-align: center;
+					border-radius: 5px;
+					cursor: pointer;
+					color: white;
+				"
+			>
+				احسب
+			</button>
+			<p id="bmi"></p>
+			<h3 id="result"></h3>
+		</div>
+		<script>
+			let btn = document.getElementById('btn');
+			btn.addEventListener('click', function () {
+				let input1 = document.getElementById('input-1').value;
+				let input2 = document.getElementById('input-2').value;
+				let BMI = (document.getElementById('bmi').innerHTML =
+					input1 / (input2 * input2));
+				let result = document.getElementById('result');
+				if (BMI < 18) {
+					result.innerHTML = 'محتاج تاكل ي جعان😂 ';
+				} else if (BMI >= 18 && BMI < 24.9) {
+					result.innerHTML = '😎 على وضعك وزن مثالي';
+				} else if (BMI >= 25 && BMI < 29.9) {
+					result.innerHTML = ' 😁الحق نفسك زيادة في الوزن';
+				} else if (BMI >= 30 && BMI < 34.9) {
+					result.innerHTML = '🦆سمنة درجة اولى';
+				} else if (BMI >= 35 && BMI < 39.9) {
+					result.innerHTML = '😥سمنة درجة ثانية';
+				} else if (BMI > 40) {
+					result.innerHTML = '🥺سمنة خطيرة ';
+				} else {
+					BMI = document.getElementById('bmi').innerHTML = '🦉!هل انت عبيط؟';
+					result.innerHTML = ' خايف ليه ما تحط بياناتك ';
+				}
+				(document.getElementById('input-1').value = ''),
+					(document.getElementById('input-2').value = '');
+			});
+		</script>
+	</body>
+</html>
